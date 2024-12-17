@@ -200,10 +200,15 @@ spec:
    ```bash
    $ kubectl apply -f payroll.yaml
    ```
-   Alternatively, you can use a Knative CLI. More information can be found at https://knative.dev/docs/client/#kubectl.
+   Alternatively, you can use a [Knative CLI](https://github.com/knative/client/blob/main/docs/README.md). More information can be found at https://knative.dev/docs/client/#kubectl.
    ```bash
    $ kn service create payroll –image docker.io/banupkubeforce/springcloudfunctions:main
    ```
+   > https://knative.dev/docs/getting-started/quickstart-install/#run-the-knative-quickstart-plugin
+   > https://github.com/knative-sandbox/kn-plugin-quickstart
+   > https://github.com/knative-sandbox/kn-plugin-quickstart/releases
+   > https://knative.dev/docs/install/serving/install-serving-with-yaml/#configure-dns
+   
 A YAML execution gives you more control over the target environment. Note this URL, as it is required for the testing step. The URL shown here for example is `https://payroll.default.127.0.0.1.sslip.io` .
 
 You can run the following command to get the URL and check if the endpoint is ready for testing.   

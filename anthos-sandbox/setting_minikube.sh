@@ -1,5 +1,6 @@
 #!/bin/bash
- 
+# https://github.com/knative/community/blob/main/mechanics/RELEASE-SCHEDULE.md#releases-supported-by-community
+
 wget -cO - https://github.com/knative/client/releases/download/knative-v1.16.1/kn-linux-amd64 > kn
 wget -cO - https://github.com/knative-extensions/kn-plugin-quickstart/releases/download/knative-v1.16.0/kn-quickstart-linux-amd64  > kn-plugin-quickstart
 chmod +x kn kn-plugin-quickstart
@@ -9,7 +10,8 @@ chmod +x kn kn-plugin-quickstart
 echo "======================================="
 echo "Startup Minikube"
 
-./kn-plugin-quickstart minikube --kubernetes-version=v1.24.13
+# https://kubernetes.io/releases/
+./kn-plugin-quickstart minikube --kubernetes-version=v1.29.12
 
 minikube profile list
 minikube -p knative ip

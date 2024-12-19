@@ -9,7 +9,7 @@ chmod +x kn kn-plugin-quickstart
 echo "======================================="
 echo "Startup Minikube"
 
-./kn-plugin-quickstart minikube
+./kn-plugin-quickstart minikube --kubernetes-version=v1.24.13
 
 minikube profile list
 minikube -p knative ip

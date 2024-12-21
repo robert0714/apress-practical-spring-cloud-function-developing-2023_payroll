@@ -218,4 +218,22 @@ Since `employeeSupplier` queries the database and gets the records, you need to 
 ![Figure 2-26Test with Postman](./resources/pic/526597_1_En_2_Fig26_HTML.png) 
 > Figure 2-26 Test with Postman
 
+```bash
+$  ./kn service list
+NAME      URL                                            LATEST          AGE   CONDITIONS   READY   REASON
+payroll   http://payroll.default.192.168.49.2.sslip.io   payroll-00001   35s   3 OK / 3     True    
+
+$ curl   http://payroll.default.192.168.49.2.sslip.io/employeesupplier |jq "."
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    88    0    88    0     0    342      0 --:--:-- --:--:-- --:--:--   343
+{
+  "id": 1,
+  "name": "banu",
+  "email": "banup@yahoo.com",
+  "salary": "10000",
+  "employeeIdentifier": 1
+}
+```
+
 In this section, you created a KIND-based Kubernetes cluster, configured Knative, and deployed the application. You created a portable image that can be deployed to any Kubernetes cluster that has been configured with Knative.

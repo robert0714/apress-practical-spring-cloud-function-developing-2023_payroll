@@ -72,7 +72,7 @@ nodes:
     hostPort: 443
 EOF
 
-$ kind create cluster --name knative --config clusterconfig.yaml
+$ kind create cluster --name knative --config clusterconfig.yaml  --image kindest/node:v1.29.12
 ```
 > Listing 2-14Create clusterconfig.yaml and Run the Create Cluster
 To set up Knative, you need to install and configure the following:
@@ -83,12 +83,12 @@ To set up Knative, you need to install and configure the following:
 Install Knative serving
 1. Install the Knative serving components (i.e., crds and core):
 ```bash
-$ kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-crds.yaml
-$ kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-core.yaml
+$ kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.16.0/serving-crds.yaml
+$ kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.16.0/serving-core.yaml
 ```
 2.	Set up networking using Kourier:
 ```bash 
-$ curl -Lo kourier.yaml https://github.com/knative/net-kourier/releases/download/knative-v1.6.0/kourier.yaml
+$ curl -Lo kourier.yaml https://github.com/knative/net-kourier/releases/download/knative-v1.16.0/kourier.yaml
 ```
 3. Change the file to use nodePort, as shown in Listing 2-15.
    By default, the Kourier service is set to be of type `LoadBalancer`. On local machines, this type doesn’t work, so you’ll have to change the type to `NodePort` and add `nodePort` elements to the two listed ports.
@@ -147,7 +147,7 @@ $ curl -Lo kourier.yaml https://github.com/knative/net-kourier/releases/download
    ```  
 6.	Set up a wildcard DNS with sslip.io:
 ```bash 
-$ kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-default-domain.yaml
+$ kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.16.0/serving-default-domain.yaml
 ```
 7.	Patch with sslip.io:
    ```bash 
